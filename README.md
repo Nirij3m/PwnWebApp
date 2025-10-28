@@ -1,11 +1,12 @@
 ### Pré-requis
-sqlite3 
-libsqlite
-ping
-whois
+```shell
+sudo apt install apache2 php sqlite3 libsqlite3-0 iputils-ping whois
 
-chmod 777 dossier db
-chmod 777 vegetables.db
-chmod 777 img
-change upload max filee php.ini
+
+```shell
+chmod 777 /var/www/html/db
+chmod 777 /var/www/html/db/vegetables.db
+chmod 777 /var/www/html/img
+```
+Change php.ini max_upload_size
 
