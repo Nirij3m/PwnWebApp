@@ -1,0 +1,167 @@
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        .home-btn {
+            position: fixed;      
+            bottom: 20px;          
+            right: 20px;           
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #3498db;
+            border: none;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 10001;
+        }
+        .home-btn:hover {
+            background-color: #2980b9;
+        }
+        .home-btn svg {
+            fill: white;
+            width: 22px;
+            height: 22px;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            display: flex;
+            margin-top: 100px; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+
+        .main-content {
+            flex: 3;
+            padding-right: 280px; 
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 8px;
+            width: 220px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar button {
+            padding: 8px 12px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            display: block;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .card button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .panier {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            width: 250px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+            z-index: 900;
+        }
+
+        .panier h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .panier table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .panier th, .panier td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .panier button {
+            color: white;
+            border: none;
+            margin-top: 5px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .panier button.btn-empty {
+            background: #e53935; 
+        }
+
+        .panier button.btn-buy {
+            background: #4CAF50;
+        }
