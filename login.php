@@ -15,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === '' || $password === '') {
         $error = "Veuillez remplir tous les champs.";
     } else {
-        $stmt = $db->query("SELECT * FROM users WHERE username = '$username' AND password = '$password'");
-        //$stmt->execute([$username]);
+        $stmt = $db->query("SELECT * FROM users WHERE username = '$username' AND password = '$password'"); // *
+        //PATCH - Remove the lines tagged with * and uncomment the ones below
+        //$stmt = $db->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+        //$stmt->execute([$username, $password]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        var_dump($user);
-        var_dump($stmt);
         if ($user) {
             session_regenerate_id(true);
             $_SESSION['user_id'] = $user['id'];

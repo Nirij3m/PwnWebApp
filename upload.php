@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $filePath = $uploadDir . $fileName;
 
         $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        //PATCH - Uncomment the line below
         //$forbidden = ['php', 'phtml', 'php3', 'php4', 'php5', 'phar'];
 
         if (in_array($fileExt, $forbidden)) {

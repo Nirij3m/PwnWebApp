@@ -7,7 +7,15 @@ $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ip = trim($_POST['ip']);
-    $result = shell_exec("ping -c 4 " . $ip);
+    $safeIp = $ip;
+    //PATCH - Uncomment the lines below
+    //if (filter_var($ip, FILTER_VALIDATE_IP)) {
+        //$safeIp = escapeshellarg($ip);
+        $result = shell_exec("ping -c 4 $safeIp");
+    //}
+    //else {
+        //$result = "Format d'adresse IP invalide";
+    //}
 }
 ?>
 

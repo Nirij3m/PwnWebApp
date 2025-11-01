@@ -21,13 +21,17 @@ if (!isset($_SESSION['panier'])) $_SESSION['panier'] = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['produit_id'], $_POST['quantite'])) {
     $id = (int)$_POST['produit_id'];
     $quantite = (int)$_POST['quantite'];
-    //if ($quantite > 0) {
+    //PATCH - Uncomment the lines below
+    /*$stmt = $db->prepare("SELECT qte FROM produits WHERE id = ?");
+    $stmt->execute([$id]);
+    $stock = (int) $stmt->fetch(PDO::FETCH_ASSOC)['qte'];*/
+
+    //if ($quantite > 0 && $quantite <= $stock) {
         $_SESSION['panier'][$id] = ($_SESSION['panier'][$id] ?? 0) + $quantite;
-    /*}
-    else{
-        THROW ERROR
-        }*/
-    
+    //}
+    //else{
+        //$error = "Les quantités demandées ne respectent pas les stocks disponibles";
+    //}
     header("Location: vegetables.php");
     exit;
 }
@@ -48,7 +52,6 @@ if (isset($_GET['buy'])) {
 
         if ($prod) {
             $stock_restant = (int)$prod['qte'] - (int)$qte;
-            //if ($stock_restant < 0) $stock_restant = 0;
             $update = $db->prepare("UPDATE produits SET qte=? WHERE id=?");
             $update->execute([$stock_restant, $id]);
         }
@@ -84,6 +87,14 @@ if (isset($_GET['buy'])) {
                 <button type="submit">Rechercher</button>
             </form>
         </div>
+        
+    <?php if (isset($error)): ?>
+        <div style="position: fixed; top: 1rem; right: 1rem; z-index: 1050;">
+            <div style="background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; border-radius: 0.375rem; padding: 0.75rem 1.25rem; max-width: 350px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 0.95rem;">
+                <strong>Erreur :</strong> <?= htmlspecialchars($error) ?>
+            </div>
+        </div>
+    <?php endif; ?>
 
     <div class="cards">
         <?php foreach ($produits as $p): ?>
