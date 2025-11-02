@@ -1,7 +1,7 @@
 ### Pré-requis
 Plusieurs paquets sont nécessaires pour réaliser les démonstrations. Le nom de ces derniers dépendra de votre gestionnaire
 ```shell
-sudo apt install apache2 php sqlite3 libsqlite3-0 iputils-ping whois
+sudo apt install apache2 php sqlite3 php-sqlite3 libsqlite3-0 iputils-ping whois
 ```
 Pour pouvoir effectuer l'attaque par inclusion de fichier "A08:2021 Photos Souvenirs", il vous faudra modifier la taille maximale des fichiers téléchargés autorisée. Pour cela il vous faut modifier le fichier `/etc/php/X.X/apa che2/php.ini` où `X.X`représente la version de PHP installée. La directive à modifier est `upload_max_filesize` en y mettant une taille égale au moins à `50M` (Mo).
 
