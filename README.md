@@ -19,6 +19,7 @@ Puis pour les droits de la base de données et du dossier de téléchargement de
 ```shell
 chmod 777 db
 chmod 777 db/vegetables.db
+mkdir img
 chmod 777 img
 ```
 
