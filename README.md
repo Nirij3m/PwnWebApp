@@ -12,8 +12,8 @@ Si vous avez implémentez plusieurs hôte, il vous faudra adapter le chemin d'in
 Plusieurs commandes sont ensuite à effectuer pour générer la base de données et accorder les droits en écriture:
 Depuis le répertoire local du repos GitHub:
 ```shell
-sqlite3 db/vegetables.db < db/init_db_vegetables.sql
-sqlite3 db/users.db < db/init_db_users.sql
+sudo sqlite3 db/vegetables.db < db/init_db_vegetables.sql
+sudo sqlite3 db/users.db < db/init_db_users.sql
 ```
 Puis pour les droits de la base de données et du dossier de téléchargement de fichiers:
 ```shell
