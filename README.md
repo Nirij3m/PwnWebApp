@@ -12,14 +12,14 @@ Si vous avez implémentez plusieurs hôte, il vous faudra adapter le chemin d'in
 Plusieurs commandes sont ensuite à effectuer pour générer la base de données et accorder les droits en écriture:
 Depuis le répertoire local du repos GitHub:
 ```shell
-sqlite3 vegetables.db < db/init_db_vegetables.sql
-sqlite3 users.db < db/init_db_users.sql
+sqlite3 db/vegetables.db < db/init_db_vegetables.sql
+sqlite3 db/users.db < db/init_db_users.sql
 ```
 Puis pour les droits de la base de données et du dossier de téléchargement de fichiers:
 ```shell
 chmod 777 db
-chmod 777 /var/www/html/db/vegetables.db
-chmod 777 /var/www/html/img
+chmod 777 db/vegetables.db
+chmod 777 img
 ```
 
 Vous pouvez ensuite démarrer le serveur web Apache2:
